@@ -30,6 +30,7 @@ const loadAllData = (token) => {
 }
 
 //utilize thunk middleware to make sure the order of the actions is correct
+//note: I am also using the promiseMiddleware here .
 export const getAllDate = () => {
   return (dispatch, getState) => {
     dispatch(retrieveToken()).then(() => {

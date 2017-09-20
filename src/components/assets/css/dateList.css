@@ -13,7 +13,7 @@
 }
 
 .table {
-  width: 25%;
+  width: 30%;
 }
 
 .date {
@@ -23,6 +23,14 @@
 .bar {
   display: inline-block;
   background-color: #e1e5ed;
-  width: 100px;
-  height: 20px;
+  width: 160px;
+  height: 15px;
+  position: relative;
+}
+
+.fill-bar {
+  position: absolute;
+  background-color: #26292d;
+  /*width: 20px;*/
+  height: 15px;
 }
