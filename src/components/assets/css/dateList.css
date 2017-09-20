@@ -1,0 +1,9 @@
+.dateList-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dateList {
+  margin: 5px 5px 5px 5px;
+  text-align: center;
+}

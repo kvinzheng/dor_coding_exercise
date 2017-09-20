@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import DateList from './dateList/DateList.js';
 
 const App = () => {
     return (
       <div className="App">
-
+        <DateList />
       </div>
     );
 }
