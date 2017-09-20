@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllDate} from '../../actions'
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return {in_counts: state.loadAllData};
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class DateList extends Component {
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.props.getAllDate();
   }
 
@@ -22,12 +22,13 @@ class DateList extends Component {
         hi there
       </td>
       <td>
-        yolo there
+        {item.in_count}
       </td>
     </tr>
   )));
 
   render() {
+    if(this.props.in_counts){
     return (
       <div className="dateList-container">
         <table className="table table-bordered table-striped">
@@ -50,11 +51,15 @@ class DateList extends Component {
             </tr>
           </thead>
           <tbody>
-            {/* {this.renderList(this.props.list)} */}
+            {console.log('props=', this.props)};
+            {this.renderList(this.props.in_counts)}
           </tbody>
         </table>
       </div>
     )
+  } else {
+    return <div></div>
+   }
   }
 }
 

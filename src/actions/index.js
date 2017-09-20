@@ -16,17 +16,16 @@ const retrieveToken = () => {
 //plug the token into the get request to retrieve the data back
 const loadAllData = (token) => {
   const API_URL = 'http://api.getdor.com/v1/teams/4/stores/4/days';
-
   const config = {
     headers: {
       Authorization: `Bearer ${token}`
     }
   };
-
   let data = axios.get(API_URL, config).then((response) => {
     console.log('respnse=', response)
     return response;
   });
+
   return {type: 'LOAD_ALL_DATA', payload: data}
 }
 
