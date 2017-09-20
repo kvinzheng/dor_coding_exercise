@@ -1,6 +1,6 @@
 # dor_coding_exercise
 
-# FOR DEVELOPERS
+## FOR DEVELOPERS ##
 To utilize our repo, please do the following:
 
 1.Fork & clone this repository
