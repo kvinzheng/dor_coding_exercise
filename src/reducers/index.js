@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
+import loadAllData from './loadAllData.js'
+import retrieveToken from './retrieveToken.js'
 
-
-const dor = combineReducers({
-
+const appReducer = combineReducers({
+  loadAllData,
+  retrieveToken,
 })
 
-export default dor
+export default appReducer

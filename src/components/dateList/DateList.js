@@ -1,21 +1,28 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
-
+import {bindActionCreators} from 'redux';
+import {getAllDate} from '../../actions'
 const mapStateToProps = (state, ownProps) => {
   return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({getAllDate}, dispatch);
 };
 
 class DateList extends Component {
 
-  renderList = (list) => ( list.map((item, index) => (
+  componentDidMount = () => {
+    this.props.getAllDate();
+  }
+
+  renderList = (list) => (list.map((item, index) => (
     <tr key={index}>
       <td>
         hi there
+      </td>
+      <td>
+        yolo there
       </td>
     </tr>
   )));
@@ -23,9 +30,29 @@ class DateList extends Component {
   render() {
     return (
       <div className="dateList-container">
-        <div className="dateList">
-         hi there how are you
-        </div>
+        <table className="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>
+                <h4>
+                  <strong>
+                    Refresh
+                  </strong>
+                </h4>
+              </th>
+              <th>
+                <h4>
+                  <strong>
+                    Last updated 12:30:23
+                  </strong>
+                </h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* {this.renderList(this.props.list)} */}
+          </tbody>
+        </table>
       </div>
     )
   }
