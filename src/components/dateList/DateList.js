@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllDate} from '../../actions'
 const mapStateToProps = (state, ownProps) => {
-  return {in_counts: state.loadAllData};
+  // console.log('state=',state);
+  return {in_counts: state.loadAllData}
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -12,26 +13,27 @@ const mapDispatchToProps = (dispatch) => {
 
 class DateList extends Component {
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.props.getAllDate();
   }
 
-  renderList = (list) => (list.map((item, index) => (
-    <tr key={index}>
-      <td>
-        hi there
+  renderList = (list) => (list.map((item, index) =>
+  (<tr key={index}>
+      <td className="date">
+        { item.date }
       </td>
       <td>
-        {item.in_count}
+        <div className="bar"></div>
+        {` amount is ${ item.in_count }`}
       </td>
-    </tr>
-  )));
+    </tr>)
+  ));
 
   render() {
-    if(this.props.in_counts){
+    if(this.props.in_counts.data){
     return (
       <div className="dateList-container">
-        <table className="table table-bordered table-striped">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th>
@@ -51,14 +53,13 @@ class DateList extends Component {
             </tr>
           </thead>
           <tbody>
-            {console.log('props=', this.props)};
-            {this.renderList(this.props.in_counts)}
+            {this.renderList(this.props.in_counts.data)}
           </tbody>
         </table>
       </div>
     )
   } else {
-    return <div></div>
+    return <div>nothing</div>
    }
   }
 }
