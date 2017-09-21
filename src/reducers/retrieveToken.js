@@ -5,7 +5,7 @@ const retrieveToken = ( state = '', action ) => {
     case 'RETRIEVE_REJECTED':
       return 'token_bad'
     case 'RETRIEVE_PENDING':
-      return 'token_pending'
+      return 'PENDING'
     default:
       return state;
   }

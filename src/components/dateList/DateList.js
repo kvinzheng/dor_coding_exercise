@@ -7,7 +7,8 @@ import * as moment from 'moment';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    in_counts: state.loadAllData.data ? sortDate(state.loadAllData) : [], max: state.loadAllData.data ? calculateMax(state.loadAllData.data) : 0 };
+    in_counts: state.loadAllData.data ? sortDate(state.loadAllData) : [], max: state.loadAllData.data ? calculateMax(state.loadAllData.data) : 0,
+    currentTime: state.currentTime };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -48,30 +49,62 @@ class DateList extends Component {
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th>
-                  <h4>
-                    <strong>
-                      Refresh
-                    </strong>
-                  </h4>
+                <th >
+                  <div id="refresh-wrapper" onClick={this.props.getAllDate}>
+                    <h4>
+                      <a id="refresh" >
+                        Refresh
+                      </a>
+                    </h4>
+                  </div>
                 </th>
                 <th>
                   <h4>
                     <strong>
-                      Last updated 12:30:23
+                      Last updated {this.props.currentTime}
                     </strong>
                   </h4>
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="table-responsive">
               {this.renderList(this.props.in_counts, this.props.max)}
             </tbody>
           </table>
         </div>
       )
     } else {
-      return <div>nothing</div>
+      return (
+        <div>
+        <div className="dateList-container">
+          <table className="table table-bordered">
+            <thead>
+              <tr>
+                <th >
+                  <div id="refresh-wrapper" onClick={this.props.getAllDate}>
+                    <h4>
+                      <a id="refresh" >
+                        Refresh
+                      </a>
+                    </h4>
+                  </div>
+                </th>
+                <th>
+                  <h4>
+                    <strong>
+                      Last updated {this.props.currentTime}
+                    </strong>
+                  </h4>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div className="footer-loading">
+          <div>Loading...</div>
+        </div>
+      </div>
+      )
     }
   }
 }

@@ -1,10 +1,16 @@
 .dateList-container {
-  margin-top:20px;
   margin-right:20px;
   margin-bottom:20px;
   margin-left:20px;
   display: flex;
   justify-content: center;
+}
+
+.footer-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
 }
 
 .dateList {
@@ -14,6 +20,16 @@
 
 .table {
   width: 30%;
+}
+
+#refresh {
+  display: inline-block;
+  text-decoration: underline;
+}
+
+#refresh-wrapper{
+  display:flex;
+  justify-content: center;
 }
 
 #day-of-week {
@@ -31,7 +47,7 @@
 #date-box {
   display: block;
   text-align: right;
-  padding-right: 25px ;
+  padding-right: 15px ;
   color:#f72e27;
 }
 
@@ -41,7 +57,6 @@
   width: 160px;
   height: 10px;
   position: relative;
-
 }
 
 #bar-info {

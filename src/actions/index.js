@@ -1,5 +1,14 @@
 import axios from 'axios';
 
+//load current time
+export const timeNow = () => {
+  let time = new Date().toLocaleString('en-GB').split(',')[1].substring(1);
+  return {
+    type: 'CURRENT_TIME',
+    payload: time
+  }
+}
+
 //make a post request to retrieve to actual token
 const retrieveToken = () => {
   const API_URL = 'http://api.getdor.com/v1/tokens';
@@ -31,10 +40,13 @@ const loadAllData = (token) => {
 //utilize thunk middleware to make sure the order of the actions is correct
 //note: I am also using the promiseMiddleware here .
 export const getAllDate = () => {
+  console.log('hit');
   return (dispatch, getState) => {
     dispatch(retrieveToken()).then(() => {
       const token = getState().retrieveToken;
       dispatch(loadAllData(token));
+    }).then(() => {
+      dispatch(timeNow());
     })
   }
 }

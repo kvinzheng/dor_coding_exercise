@@ -5,7 +5,7 @@ const loadAllData = ( state = {}, action ) => {
     case 'LOAD_ALL_DATA_REJECTED':
       return 'response_bad'
     case 'LOAD_ALL_DATA_PENDING':
-      return 'response_pending'
+      return 'PENDING'
     default:
       return state;
   }
