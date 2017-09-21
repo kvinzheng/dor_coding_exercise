@@ -5,7 +5,7 @@ import renderIf from 'render-if';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => {
-  return {loadAllData: state.loadAllData, retrieveToken: state.retrieveToken}
+  return {}
 }
 
 class App extends Component {

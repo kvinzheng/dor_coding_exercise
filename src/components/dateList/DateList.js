@@ -6,9 +6,11 @@ import {calculateMax,sortDate,dayOfWeek} from './helper.js';
 import * as moment from 'moment';
 
 const mapStateToProps = (state, ownProps) => {
+  // console.log('state=',state);
   return {
-    in_counts: state.loadAllData.data ? sortDate(state.loadAllData) : [], max: state.loadAllData.data ? calculateMax(state.loadAllData.data) : 0,
-    currentTime: state.currentTime };
+    in_counts: state.dorData.myData ? sortDate(state.dorData.myData) : [],
+     max: state.dorData.myData ? calculateMax(state.dorData.myData.data) : 0,
+    currentTime: state.currentTime.time };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -67,7 +69,7 @@ class DateList extends Component {
                 </th>
               </tr>
             </thead>
-            <tbody class="table-responsive">
+            <tbody className="table-responsive">
               {this.renderList(this.props.in_counts, this.props.max)}
             </tbody>
           </table>

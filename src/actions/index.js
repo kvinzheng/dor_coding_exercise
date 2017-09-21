@@ -37,10 +37,9 @@ const loadAllData = (token) => {
 //utilize thunk middleware to make sure the order of the actions is correct
 //note: I am also using the promiseMiddleware here .
 export const getAllDate = () => {
-  console.log('hit');
   return (dispatch, getState) => {
     dispatch(retrieveToken()).then(() => {
-      const token = getState().retrieveToken;
+      const token = getState().token;
       dispatch(loadAllData(token));
     }).then(() => {
       dispatch(timeNow());

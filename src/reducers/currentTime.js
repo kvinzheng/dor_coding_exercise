@@ -1,7 +1,7 @@
-const currentTime = (state = '', action ) => {
+const currentTime = (state = {time: null}, action ) => {
   switch (action.type) {
     case 'CURRENT_TIME':
-      return action.payload;
+      return {...state, time: action.payload};
     default:
       return state;
   }
