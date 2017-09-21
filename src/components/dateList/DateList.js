@@ -2,20 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllDate} from '../../actions'
+import {calculateMax,sortDate} from './helper.js';
+
+
 const mapStateToProps = (state, ownProps) => {
-  let max = -Infinity;
-
-  if (state.loadAllData.data) {
-    let array = state.loadAllData.data;
-    for (let i = 0; i < array.length; i++) {
-      let current = array[i]['in_count'];
-      if (current > max) {
-        max = current;
-      }
-    }
-  }
-
-  return { in_counts: state.loadAllData, max: max };
+  return {
+    in_counts: state.loadAllData.data ? sortDate(state.loadAllData) : [], max: state.loadAllData.data ? calculateMax(state.loadAllData.data) : 0 };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -37,7 +29,6 @@ class DateList extends Component {
       </td>
       <td>
         <div className="bar">
-
           <div className="fill-bar"
             style={{width : Math.floor((item.in_count/max) * 160)+'px'}}
             >
@@ -50,7 +41,7 @@ class DateList extends Component {
 
   render() {
     //do logic here and set max
-    if (this.props.in_counts.data) {
+    if (this.props.in_counts.length) {
       return (
         <div className="dateList-container">
           <table className="table table-bordered">
@@ -73,7 +64,7 @@ class DateList extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.renderList(this.props.in_counts.data, this.props.max)}
+              {this.renderList(this.props.in_counts, this.props.max)}
             </tbody>
           </table>
         </div>

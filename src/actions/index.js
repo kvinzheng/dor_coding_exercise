@@ -22,7 +22,6 @@ const loadAllData = (token) => {
     }
   };
   let data = axios.get(API_URL, config).then((response) => {
-    console.log('respnse=', response)
     return response;
   });
 
