@@ -28,14 +28,14 @@ class DateList extends Component {
         <div id="day-of-week">{dayOfWeek(moment(item.date).day())}</div>
         <div id="date">{item.date.split('-')[2]}</div>
       </td>
-      <td>
+      <td id="bar-info">
         <div className="bar">
           <div className="fill-bar"
             style={{width : Math.floor((item.in_count/max) * 160)+'px'}}
             >
             </div>
         </div>
-        {item.in_count}
+        <div className="in-count">{item.in_count}</div>
       </td>
     </tr>
   )));
