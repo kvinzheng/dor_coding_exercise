@@ -3,10 +3,7 @@ import axios from 'axios';
 //load current time
 export const timeNow = () => {
   let time = new Date().toLocaleString('en-GB').split(',')[1].substring(1);
-  return {
-    type: 'CURRENT_TIME',
-    payload: time
-  }
+  return {type: 'CURRENT_TIME', payload: time}
 }
 
 //make a post request to retrieve to actual token
