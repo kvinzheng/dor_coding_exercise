@@ -16,8 +16,19 @@
   width: 30%;
 }
 
-.date {
-  text-align: center;
+#day-of-week {
+  display: inline-block;
+  margin-right:10px;
+}
+
+#date {
+  display: inline-block;
+}
+
+#date-box {
+  display: block;
+  text-align: right;
+  padding-right: 25px ;
 }
 
 .bar {

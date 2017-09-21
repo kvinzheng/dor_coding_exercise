@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAllDate} from '../../actions'
-import {calculateMax,sortDate} from './helper.js';
-
+import {calculateMax,sortDate,dayOfWeek} from './helper.js';
+import * as moment from 'moment';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -24,8 +24,9 @@ class DateList extends Component {
 
   renderList = (list, max) => (list.map((item, index) => (
     <tr key={index}>
-      <td className="date">
-        {item.date}
+      <td id="date-box">
+        <div id="day-of-week">{dayOfWeek(moment(item.date).day())}</div>
+        <div id="date">{item.date.split('-')[2]}</div>
       </td>
       <td>
         <div className="bar">
