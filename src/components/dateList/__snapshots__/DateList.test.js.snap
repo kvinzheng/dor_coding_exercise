@@ -1,5 +1,132 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DateList Component should render with props passed in 1`] = `
+<div
+  className="dateList-container"
+>
+  <table
+    className="table table-bordered"
+  >
+    <Connect(Component) />
+    <tbody
+      className="table-responsive"
+    >
+      <tr
+        key="0"
+      >
+        <td
+          id="date-box"
+        >
+          <div
+            id="day-of-week"
+          >
+            FRI
+          </div>
+          <div
+            id="date"
+          >
+            22
+          </div>
+        </td>
+        <td
+          id="bar-info"
+        >
+          <div
+            className="bar"
+          >
+            <div
+              className="fill-bar"
+              style={
+                Object {
+                  "width": "NaNpx",
+                }
+              }
+            />
+          </div>
+          <div
+            className="in-count"
+          />
+        </td>
+      </tr>
+      <tr
+        key="1"
+      >
+        <td
+          id="date-box"
+        >
+          <div
+            id="day-of-week"
+          >
+            WED
+          </div>
+          <div
+            id="date"
+          >
+            20
+          </div>
+        </td>
+        <td
+          id="bar-info"
+        >
+          <div
+            className="bar"
+          >
+            <div
+              className="fill-bar"
+              style={
+                Object {
+                  "width": "NaNpx",
+                }
+              }
+            />
+          </div>
+          <div
+            className="in-count"
+          />
+        </td>
+      </tr>
+      <tr
+        key="2"
+      >
+        <td
+          id="date-box"
+        >
+          <div
+            id="day-of-week"
+          >
+            TUE
+          </div>
+          <div
+            id="date"
+          >
+            19
+          </div>
+        </td>
+        <td
+          id="bar-info"
+        >
+          <div
+            className="bar"
+          >
+            <div
+              className="fill-bar"
+              style={
+                Object {
+                  "width": "NaNpx",
+                }
+              }
+            />
+          </div>
+          <div
+            className="in-count"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`DateList Component should render without any props defined 1`] = `
 <div>
   <div

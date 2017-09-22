@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as moment from 'moment';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getAllDate } from '../../actions';
