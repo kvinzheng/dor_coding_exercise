@@ -10,9 +10,12 @@ module.exports = {
         "extensions": [".js", ".jsx"]
       }
     ],
-    "indent": [
-      2, 4
+    "import/no-named-as-default": "off",
+    "no-plusplus": [
+      1, {
+        "allowForLoopAfterthoughts": true
+      }
     ],
-    "import/no-named-as-default": "off"
+    "react/prop-types": 0
   }
 };

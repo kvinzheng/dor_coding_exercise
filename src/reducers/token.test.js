@@ -2,7 +2,6 @@ import token from './token.js';
 
 describe('token', function() {
   it('returns an empty string if passed in state that is undefined', function() {
-
     const nextState = token(undefined, {});
     expect(nextState).toEqual({myToken: null, status: null});
   });
@@ -28,12 +27,12 @@ describe('token', function() {
         data: {
           data: {
             token: 'abcdefg'
-          }
-        }
-      }
+          },
+        },
+      },
     });
 
     expect(nextState).not.toBe(prevState);
-    expect(nextState).toEqual({myToken: 'abcdefg', status: 'FULFILLED'})
-  })
-})
+    expect(nextState).toEqual({ myToken: 'abcdefg', status: 'FULFILLED' });
+  });
+});

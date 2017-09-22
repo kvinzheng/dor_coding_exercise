@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import dorData from './dorData.js';
-import token from './token.js';
-import currentTime from './currentTime.js';
+import dorData from './dorData';
+import token from './token';
+import currentTime from './currentTime';
 
 const appReducer = combineReducers({
   dorData,
   token,
-  currentTime
-})
+  currentTime,
+});
 
-export default appReducer
+export default appReducer;

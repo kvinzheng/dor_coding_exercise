@@ -1,32 +1,21 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {getAllDate} from '../../actions'
-import {calculateMax, sortDate, dayOfWeek} from './helper.js';
+import React, { Component } from 'react';
 import * as moment from 'moment';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getAllDate } from '../../actions';
+import { calculateMax, sortDate, dayOfWeek } from './helper';
 import TableHeader from './TableHeader';
 
-const mapStateToProps = (state, ownProps) => {
-  // console.log('state=',state);
-  return {
-    in_counts: state.dorData.myData
-      ? sortDate(state.dorData.myData)
-      : [],
-    max: state.dorData.myData
-      ? calculateMax(state.dorData.myData.data)
-      : 0,
-    currentTime: state.currentTime.time,
-    status: (state.dorData.status === 'PENDING' || state.token.status === 'PENDING')
-      ? 'PENDING'
-      : 'FULFILLED'
-  };
-};
+const mapStateToProps = state => ({
+  in_counts: state.dorData.myData ? sortDate(state.dorData.myData) : [],
+  max: state.dorData.myData ? calculateMax(state.dorData.myData.data) : 0,
+  currentTime: state.currentTime.time,
+  status: (state.dorData.status === 'PENDING' || state.token.status === 'PENDING') ? 'PENDING' : 'FULFILLED',
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    getAllDate
-  }, dispatch);
-};
+const mapDispatchToProps = dispatch => (
+   bindActionCreators({ getAllDate }, dispatch)
+);
 
 class DateList extends Component {
 
@@ -42,9 +31,9 @@ class DateList extends Component {
       </td>
       <td id="bar-info">
         <div className="bar">
-          <div className="fill-bar" style={{
-            width: Math.floor((item.in_count / max) * 160) + 'px'
-          }}></div>
+          <div className="fill-bar"
+            style={{ width: Math.floor((item.in_count / max) * 160) + 'px' }}>
+          </div>
         </div>
         <div className="in-count">{item.in_count}</div>
       </td>
@@ -56,7 +45,7 @@ class DateList extends Component {
       return (
         <div className="dateList-container">
           <table className="table table-bordered">
-            <TableHeader/>
+            <TableHeader />
             <tbody className="table-responsive">
               {this.renderList(this.props.in_counts, this.props.max)}
             </tbody>
@@ -68,14 +57,14 @@ class DateList extends Component {
         <div>
           <div className="dateList-container">
             <table className="table table-bordered">
-              <TableHeader/>
+              <TableHeader />
             </table>
           </div>
           <div className="footer-loading">
             <div>Loading...</div>
           </div>
         </div>
-      )
+      );
     }
   }
 }
