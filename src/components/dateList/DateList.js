@@ -5,19 +5,20 @@ import { bindActionCreators } from 'redux';
 import { getAllDate } from '../../actions';
 import { calculateMax, sortDate, dayOfWeek } from './helper';
 import TableHeader from './TableHeader';
+import Header from '../header/header';
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   in_counts: state.dorData.myData ? sortDate(state.dorData.myData) : [],
   max: state.dorData.myData ? calculateMax(state.dorData.myData.data) : 0,
   currentTime: state.currentTime.time,
   status: (state.dorData.status === 'PENDING' || state.token.status === 'PENDING') ? 'PENDING' : 'FULFILLED',
 });
 
-const mapDispatchToProps = dispatch => (
+export const mapDispatchToProps = dispatch => (
    bindActionCreators({ getAllDate }, dispatch)
 );
 
-class DateList extends Component {
+export class DateList extends Component {
 
   componentDidMount = () => {
     this.props.getAllDate();
@@ -51,7 +52,7 @@ class DateList extends Component {
             </tbody>
           </table>
         </div>
-      )
+      );
     } else {
       return (
         <div>

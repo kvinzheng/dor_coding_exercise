@@ -7,26 +7,26 @@ export const timeNow = () => {
 };
 
 // make a post request to retrieve to actual token
-const retrieveToken = () => {
+export const retrieveToken = () => {
   const API_URL = 'http://api.getdor.com/v1/tokens';
   const body = {
     refresh_token: 'wSGgSqmSDKS4YPfMSHZ4YyiOpiNv',
   };
-  const token = axios.post(API_URL, body).then(response => response);
-  return { type: 'RETRIEVE', payload: token };
+  const tokenPromise = axios.post(API_URL, body).then(response => response);
+  return { type: 'RETRIEVE', payload: tokenPromise };
 };
 
 // plug the token into the get request to retrieve the data back
-const loadAllData = (token) => {
+export const loadAllData = (token) => {
   const API_URL = 'http://api.getdor.com/v1/teams/4/stores/4/days';
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  const data = axios.get(API_URL, config).then(response => response);
+  const dataPromise = axios.get(API_URL, config).then(response => response);
 
-  return { type: 'LOAD_ALL_DATA', payload: data };
+  return { type: 'LOAD_ALL_DATA', payload: dataPromise };
 };
 
 // utilize thunk middleware to make sure the order of the actions is correct

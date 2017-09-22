@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getAllDate } from '../../actions';
 
-const mapStateToProps = state => (
+export const mapStateToProps = state => (
   { currentTime: state.currentTime.time }
 );
 
-const mapDispatchToProps = dispatch => (
+export const mapDispatchToProps = dispatch => (
   bindActionCreators({ getAllDate }, dispatch)
 );
 
-const TableHeader = ({ getAllDate, currentTime }) => (
+export const TableHeader = ({ getAllDate, currentTime }) => (
   <thead>
     <tr>
       <th>
@@ -34,4 +34,4 @@ const TableHeader = ({ getAllDate, currentTime }) => (
   </thead>
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableHeader);
+export default connect(mapStateToProps, {mapDispatchToProps})(TableHeader);

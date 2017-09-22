@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateList Component should render without any props defined 1`] = `
+<div>
+  <div
+    className="dateList-container"
+  >
+    <table
+      className="table table-bordered"
+    >
+      <Connect(Component) />
+    </table>
+  </div>
+  <div
+    className="footer-loading"
+  >
+    <div>
+      Loading...
+    </div>
+  </div>
+</div>
+`;
