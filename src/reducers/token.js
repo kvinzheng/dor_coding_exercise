@@ -1,11 +1,11 @@
-const retrieveToken = ( state = '', action ) => {
+const retrieveToken = ( state = {myToken: null, status: null}, action ) => {
   switch (action.type) {
     case 'RETRIEVE_FULFILLED':
-      return action.payload.data.data.token;
+      return {...state, myToken:action.payload.data.data.token, status: 'FULFILLED' }
     case 'RETRIEVE_REJECTED':
-      return 'token_bad'
+      return {...state, status: 'REJECTED'}
     case 'RETRIEVE_PENDING':
-      return 'PENDING'
+      return {...state, status: 'PENDING'}
     default:
       return state;
   }

@@ -15,7 +15,7 @@ const retrieveToken = () => {
   let token = axios.post(API_URL, body).then((response) => {
     return response
   });
-
+  console.log('token=',token);
   return {type: 'RETRIEVE', payload: token}
 }
 
@@ -38,11 +38,11 @@ const loadAllData = (token) => {
 //note: I am also using the promiseMiddleware here .
 export const getAllDate = () => {
   return (dispatch, getState) => {
-    dispatch(retrieveToken()).then(() => {
-      const token = getState().token;
-      dispatch(loadAllData(token));
+    return dispatch(retrieveToken()).then(() => {
+      const token = getState().token.myToken;
+      return dispatch(loadAllData(token));
     }).then(() => {
-      dispatch(timeNow());
+      return dispatch(timeNow());
     })
   }
 }

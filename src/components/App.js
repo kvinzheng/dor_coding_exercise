@@ -4,11 +4,11 @@ import Header from './header/header.js';
 import renderIf from 'render-if';
 import {connect} from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => {
-  return {}
-}
+// const mapStateToProps = (state, ownProps) => {
+//   return {}
+// }
 
-class App extends Component {
+export class App extends Component {
 
   render() {
     return (
@@ -20,4 +20,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, null)(App);
+export default App;
