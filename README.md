@@ -19,11 +19,13 @@ To utilize our repo, please do the following:
 ## Testing ##
 I understand how important testing is to a company. I screenshot of the testing coverage from the terminal
 
-I tested **Reducers, Actions,** and **Components**.
-
 1. run ```npm test``` to run all the tests without the test coverage interface
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
 
+**NOTE** : I tested only **Reducers, Actions,** and **Components**.
+<img src="./src/assets/test.png" width="600" />
+
+Improvement: I would like to continue to test more functionality in the future. For now, I think the test coverage result is promising.
 
 ## Technologies Used
 
