@@ -22,7 +22,7 @@ export const getAllDate = () => {
   return (dispatch, getState, { Api }) => {
     return dispatch(retrieveToken(Api)).then(() => {
       const token = getState().token.myToken;
-      return dispatch(loadAllData(Api,token));
+      return dispatch(loadAllData(Api, token));
     }).then(() => dispatch(timeNow()));
   };
 };

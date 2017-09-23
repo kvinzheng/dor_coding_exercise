@@ -1,32 +1,31 @@
-import token from './token.js';
+import token from './token';
 
-describe('token', function() {
-  it('returns an empty string if passed in state that is undefined', function() {
+describe('token', function () {
+  it('returns the default state if passed in state that is undefined', function () {
     const nextState = token(undefined, {});
-    expect(nextState).toEqual({myToken: null, status: null});
+    expect(nextState).toEqual({ myToken: null, status: null });
   });
 
-  it('returns the exact state given an unkown type (i.e., does not modify the state)', function() {
+  it('returns the exact state given an unkown type (i.e., does not modify the state)', function () {
     const prevState = {
       myToken: null,
-      status: null
+      status: null,
     };
-
-    const nextState = token(prevState, {type: 'UNKNOWN'});
+    const nextState = token(prevState, { type: 'UNKNOWN' });
     expect(nextState).toBe(prevState);
-  })
+  });
 
-  it('returns a new state with the specified token set on it', function() {
+  it('returns a new state with the specified token as the payload', function () {
     const prevState = {
       myToken: null,
-      status: null
+      status: null,
     };
     const nextState = token(prevState, {
       type: 'RETRIEVE_FULFILLED',
       payload: {
         data: {
           data: {
-            token: 'abcdefg'
+            token: 'abcdefg',
           },
         },
       },

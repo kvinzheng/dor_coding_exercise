@@ -20,10 +20,8 @@ exports[`TableHeader Component should render with props passed in 1`] = `
       id="update-wrapper"
     >
       <h4>
-        <strong>
-          Last updated 
-          2017-09-09
-        </strong>
+        Last updated 
+        2017-09-09
       </h4>
     </td>
   </tr>
@@ -50,9 +48,7 @@ exports[`TableHeader Component should render without any props defined 1`] = `
       id="update-wrapper"
     >
       <h4>
-        <strong>
-          Last updated 
-        </strong>
+        Last updated 
       </h4>
     </td>
   </tr>
@@ -86,10 +82,8 @@ ShallowWrapper {
             id="update-wrapper"
         >
             <h4>
-                <strong>
-                    Last updated 
-                    2017-09-09
-                </strong>
+                Last updated 
+                2017-09-09
             </h4>
         </td>
     </tr>
@@ -114,10 +108,8 @@ ShallowWrapper {
                   id="update-wrapper"
             >
                   <h4>
-                        <strong>
-                              Last updated 
-                              2017-09-09
-                        </strong>
+                        Last updated 
+                        2017-09-09
                   </h4>
             </td>
       </tr>
@@ -180,10 +172,8 @@ ShallowWrapper {
                               id="update-wrapper"
                     >
                               <h4>
-                                        <strong>
-                                                  Last updated 
-                                                  2017-09-09
-                                        </strong>
+                                        Last updated 
+                                        2017-09-09
                               </h4>
                     </td>
           </tr>
@@ -208,10 +198,8 @@ ShallowWrapper {
                               id="update-wrapper"
                     >
                               <h4>
-                                        <strong>
-                                                  Last updated 
-                                                  2017-09-09
-                                        </strong>
+                                        Last updated 
+                                        2017-09-09
                               </h4>
                     </td>
           </tr>
@@ -260,10 +248,8 @@ ShallowWrapper {
             id="update-wrapper"
         >
             <h4>
-                <strong>
-                    Last updated 
-                    2017-09-09
-                </strong>
+                Last updated 
+                2017-09-09
             </h4>
         </td>
     </tr>
@@ -288,10 +274,8 @@ ShallowWrapper {
                   id="update-wrapper"
             >
                   <h4>
-                        <strong>
-                              Last updated 
-                              2017-09-09
-                        </strong>
+                        Last updated 
+                        2017-09-09
                   </h4>
             </td>
       </tr>
@@ -354,10 +338,8 @@ ShallowWrapper {
                               id="update-wrapper"
                     >
                               <h4>
-                                        <strong>
-                                                  Last updated 
-                                                  2017-09-09
-                                        </strong>
+                                        Last updated 
+                                        2017-09-09
                               </h4>
                     </td>
           </tr>
@@ -382,10 +364,8 @@ ShallowWrapper {
                               id="update-wrapper"
                     >
                               <h4>
-                                        <strong>
-                                                  Last updated 
-                                                  2017-09-09
-                                        </strong>
+                                        Last updated 
+                                        2017-09-09
                               </h4>
                     </td>
           </tr>
