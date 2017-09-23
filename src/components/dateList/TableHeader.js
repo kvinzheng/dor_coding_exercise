@@ -27,9 +27,7 @@ export const TableHeader = ({ getAllDate, currentTime }) => (
 
       <td id="update-wrapper">
         <h4>
-          <strong>
-            Last updated {currentTime}
-          </strong>
+          Last updated {currentTime}
         </h4>
       </td>
     </tr>
