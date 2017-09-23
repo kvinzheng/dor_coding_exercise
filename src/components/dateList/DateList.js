@@ -45,18 +45,12 @@ export class DateList extends Component {
     if (this.props.status === 'FULFILLED') {
       return (
         <div className="dateList-container">
-          {/* <Header /> */}
-
           <table className="table table-bordered">
             <TableHeader />
-
-            {/* <div id="scroll-table"> */}
               <tbody >
                 {this.renderList(this.props.in_counts, this.props.max)}
               </tbody>
-          {/* </div> */}
           </table>
-
         </div>
       );
     } else {

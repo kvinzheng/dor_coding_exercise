@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Header = () => (
-  <div className="store-header-wrapper">
+  <tr className="store-header-wrapper">
     <div className="store-header">Store Visits</div>
-  </div>
+  </tr>
 );
 
 export default Header;
