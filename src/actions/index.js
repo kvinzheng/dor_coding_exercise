@@ -1,4 +1,3 @@
-import axios from 'axios';
 // load current time
 export const timeNow = () => {
   const time = new Date().toLocaleString('en-GB').split(',')[1].substring(1);

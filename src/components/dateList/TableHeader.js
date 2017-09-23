@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getAllDate } from '../../actions';
-
 export const mapStateToProps = state => (
   { currentTime: state.currentTime.time }
 );

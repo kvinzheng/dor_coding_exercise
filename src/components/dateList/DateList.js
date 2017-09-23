@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { getAllDate } from '../../actions';
 import { calculateMax, sortDate, dayOfWeek } from './helper';
 import TableHeader from './TableHeader';
-import Header from '../header/header';
+import Header from '../header/header'
 
 export const mapStateToProps = state => ({
   in_counts: state.dorData.myData ? sortDate(state.dorData.myData) : [],
@@ -45,7 +45,9 @@ export class DateList extends Component {
     if (this.props.status === 'FULFILLED') {
       return (
         <div className="dateList-container">
+          {/* <Header /> */}
           <table className="table table-bordered">
+
             <TableHeader />
             <tbody className="table-responsive">
               {this.renderList(this.props.in_counts, this.props.max)}
