@@ -1,9 +1,35 @@
 .dateList-container {
-  /*margin-right:20px;
-  margin-bottom:20px;
-  margin-left:20px;*/
+  margin: auto;
+  /*overflow-y: auto;
+  height: 350px;*/
   display: flex;
   justify-content: center;
+}
+
+thead {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+tbody {
+  display: block;
+  height: 300px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+table thead, table tbody tr {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+#scroll-table {
+  overflow-y: auto;
+  height: 30px;
+  width: 500px;
+  /*border-radius: 5px;*/
 }
 
 .footer-loading {
@@ -19,6 +45,7 @@
 }
 
 .table {
+  border-radius: 10px;
   width: 30%;
 }
 
@@ -27,28 +54,33 @@
   text-decoration: underline;
 }
 
-#refresh-wrapper{
-  display:flex;
-  justify-content: center;
+#refresh-wrapper {
+  width: 30%;
+  display: inline-block;
+}
+
+#update-wrapper {
+  width: 70%;
+  display: inline-block;
 }
 
 #day-of-week {
   display: inline-block;
-  margin-right:10px;
+  margin-right: 10px;
   font-weight: bold;
 }
 
 #date {
   display: inline-block;
   font-weight: bold;
-  color:#f72e27;
+  color: #f72e27;
 }
 
 #date-box {
-  display: block;
+  width: 30%;
   text-align: right;
-  padding-right: 15px ;
-  color:#f72e27;
+  padding-right: 15px;
+  color: #f72e27;
 }
 
 .bar {
@@ -71,7 +103,7 @@
 
 .in-count {
   display: inline-block;
-  margin-left:20px;
+  margin-left: 20px;
   font-size: 120%;
   font-weight: bold;
 }

@@ -46,13 +46,17 @@ export class DateList extends Component {
       return (
         <div className="dateList-container">
           {/* <Header /> */}
-          <table className="table table-bordered">
 
+          <table className="table table-bordered">
             <TableHeader />
-            <tbody className="table-responsive">
-              {this.renderList(this.props.in_counts, this.props.max)}
-            </tbody>
+
+            {/* <div id="scroll-table"> */}
+              <tbody >
+                {this.renderList(this.props.in_counts, this.props.max)}
+              </tbody>
+          {/* </div> */}
           </table>
+
         </div>
       );
     } else {

@@ -1,35 +1,37 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { getAllDate } from '../../actions';
-export const mapStateToProps = state => (
-  { currentTime: state.currentTime.time }
-);
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getAllDate} from '../../actions';
+export const mapStateToProps = state => ({currentTime: state.currentTime.time});
 
-export const mapDispatchToProps = dispatch => (
-  bindActionCreators({ getAllDate }, dispatch)
-);
+export const mapDispatchToProps = dispatch => (bindActionCreators({
+  getAllDate
+}, dispatch));
 
-export const TableHeader = ({ getAllDate, currentTime }) => (
+export const TableHeader = ({getAllDate, currentTime}) => (
   <thead>
-    <tr>
-      <th>
-        <div id="refresh-wrapper" onClick={getAllDate}>
+    <tr >
+      <td id="refresh-wrapper">
+        <div >
           <h4>
-            <a id="refresh">
+            <a id="refresh" onClick={getAllDate}>
               Refresh
             </a>
           </h4>
         </div>
-      </th>
-      <th>
-        <h4>
-          <strong>
-            Last updated {currentTime}
-          </strong>
-        </h4>
-      </th>
-    </tr>
+
+      </td>
+
+      <td id="update-wrapper">
+      <div >
+          <h4>
+            <strong>
+              Last updated {currentTime}
+            </strong>
+          </h4>
+        </div>
+    </td>
+  </tr>
   </thead>
 );
 
