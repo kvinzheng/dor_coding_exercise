@@ -5,18 +5,23 @@ import { bindActionCreators } from 'redux';
 import { getAllDate } from '../../actions';
 import { calculateMax, sortDate, dayOfWeek } from './helper';
 import TableHeader from './TableHeader';
-import Header from '../header/header'
 
 export const mapStateToProps = state => ({
-  in_counts: state.dorData.myData ? sortDate(state.dorData.myData) : [],
-  max: state.dorData.myData ? calculateMax(state.dorData.myData.data) : 0,
+  in_counts: state.dorData.myData
+    ? sortDate(state.dorData.myData)
+    : [],
+  max: state.dorData.myData
+    ? calculateMax(state.dorData.myData.data)
+    : 0,
   currentTime: state.currentTime.time,
-  status: (state.dorData.status === 'PENDING' || state.token.status === 'PENDING') ? 'PENDING' : 'FULFILLED',
+  status: (state.dorData.status === 'PENDING' || state.token.status === 'PENDING')
+    ? 'PENDING'
+    : 'FULFILLED',
 });
 
-export const mapDispatchToProps = dispatch => (
-   bindActionCreators({ getAllDate }, dispatch)
-);
+export const mapDispatchToProps = dispatch => (bindActionCreators({
+  getAllDate
+}, dispatch));
 
 export class DateList extends Component {
 
@@ -32,9 +37,11 @@ export class DateList extends Component {
       </td>
       <td id="bar-info">
         <div className="bar">
-          <div className="fill-bar"
-            style={{ width: Math.floor((item.in_count / max) * 160) + 'px' }}>
-          </div>
+          <div
+            className="fill-bar"
+            style={{
+              width: `${Math.floor((item.in_count / max) * 160)}px` }}
+          />
         </div>
         <div className="in-count">{item.in_count}</div>
       </td>
@@ -47,9 +54,9 @@ export class DateList extends Component {
         <div className="dateList-container">
           <table className="table table-bordered">
             <TableHeader />
-              <tbody >
-                {this.renderList(this.props.in_counts, this.props.max)}
-              </tbody>
+            <tbody >
+              {this.renderList(this.props.in_counts, this.props.max)}
+            </tbody>
           </table>
         </div>
       );

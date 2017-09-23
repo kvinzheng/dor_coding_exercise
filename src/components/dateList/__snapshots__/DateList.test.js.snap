@@ -8,9 +8,7 @@ exports[`DateList Component should render with props passed in 1`] = `
     className="table table-bordered"
   >
     <Connect(Component) />
-    <tbody
-      className="table-responsive"
-    >
+    <tbody>
       <tr
         key="0"
       >

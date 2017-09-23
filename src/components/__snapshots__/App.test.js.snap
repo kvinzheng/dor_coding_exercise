@@ -11,14 +11,12 @@ ShallowWrapper {
   "node": <div
     className="App"
 >
-    <Header />
     <Connect(DateList) />
 </div>,
   "nodes": Array [
     <div
       className="App"
 >
-      <Header />
       <Connect(DateList) />
 </div>,
   ],
@@ -59,14 +57,12 @@ ShallowWrapper {
         "_currentElement": <div
           className="App"
 >
-          <Header />
           <Connect(DateList) />
 </div>,
         "_debugID": 2,
         "_renderedOutput": <div
           className="App"
 >
-          <Header />
           <Connect(DateList) />
 </div>,
       },

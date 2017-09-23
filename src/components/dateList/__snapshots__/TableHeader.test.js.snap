@@ -2,55 +2,59 @@
 
 exports[`TableHeader Component should render with props passed in 1`] = `
 <thead>
+  <Header />
   <tr>
-    <th>
-      <div
-        id="refresh-wrapper"
-      >
-        <h4>
-          <a
-            id="refresh"
-          >
-            Refresh
-          </a>
-        </h4>
-      </div>
-    </th>
-    <th>
+    <td
+      id="refresh-wrapper"
+    >
+      <h4>
+        <a
+          id="refresh"
+          onClick={[Function]}
+        >
+          Refresh
+        </a>
+      </h4>
+    </td>
+    <td
+      id="update-wrapper"
+    >
       <h4>
         <strong>
           Last updated 
           2017-09-09
         </strong>
       </h4>
-    </th>
+    </td>
   </tr>
 </thead>
 `;
 
 exports[`TableHeader Component should render without any props defined 1`] = `
 <thead>
+  <Header />
   <tr>
-    <th>
-      <div
-        id="refresh-wrapper"
-      >
-        <h4>
-          <a
-            id="refresh"
-          >
-            Refresh
-          </a>
-        </h4>
-      </div>
-    </th>
-    <th>
+    <td
+      id="refresh-wrapper"
+    >
+      <h4>
+        <a
+          id="refresh"
+          onClick={[Function]}
+        >
+          Refresh
+        </a>
+      </h4>
+    </td>
+    <td
+      id="update-wrapper"
+    >
       <h4>
         <strong>
           Last updated 
         </strong>
       </h4>
-    </th>
+    </td>
   </tr>
 </thead>
 `;
@@ -64,56 +68,58 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <thead>
+    <Header />
     <tr>
-        <th>
-            <div
-                id="refresh-wrapper"
-                onClick={undefined}
-            >
-                <h4>
-                    <a
-                        id="refresh"
-                    >
-                        Refresh
-                    </a>
-                </h4>
-            </div>
-        </th>
-        <th>
+        <td
+            id="refresh-wrapper"
+        >
+            <h4>
+                <a
+                    id="refresh"
+                    onClick={[Function]}
+                >
+                    Refresh
+                </a>
+            </h4>
+        </td>
+        <td
+            id="update-wrapper"
+        >
             <h4>
                 <strong>
                     Last updated 
                     2017-09-09
                 </strong>
             </h4>
-        </th>
+        </td>
     </tr>
 </thead>,
   "nodes": Array [
     <thead>
+      <Header />
       <tr>
-            <th>
-                  <div
-                        id="refresh-wrapper"
-                        onClick={undefined}
-                  >
-                        <h4>
-                              <a
-                                    id="refresh"
-                              >
-                                    Refresh
-                              </a>
-                        </h4>
-                  </div>
-            </th>
-            <th>
+            <td
+                  id="refresh-wrapper"
+            >
+                  <h4>
+                        <a
+                              id="refresh"
+                              onClick={[Function]}
+                        >
+                              Refresh
+                        </a>
+                  </h4>
+            </td>
+            <td
+                  id="update-wrapper"
+            >
                   <h4>
                         <strong>
                               Last updated 
                               2017-09-09
                         </strong>
                   </h4>
-            </th>
+            </td>
       </tr>
 </thead>,
   ],
@@ -156,56 +162,58 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <thead>
+          <Header />
           <tr>
-                    <th>
-                              <div
-                                        id="refresh-wrapper"
-                                        onClick={undefined}
-                              >
-                                        <h4>
-                                                  <a
-                                                            id="refresh"
-                                                  >
-                                                            Refresh
-                                                  </a>
-                                        </h4>
-                              </div>
-                    </th>
-                    <th>
+                    <td
+                              id="refresh-wrapper"
+                    >
+                              <h4>
+                                        <a
+                                                  id="refresh"
+                                                  onClick={[Function]}
+                                        >
+                                                  Refresh
+                                        </a>
+                              </h4>
+                    </td>
+                    <td
+                              id="update-wrapper"
+                    >
                               <h4>
                                         <strong>
                                                   Last updated 
                                                   2017-09-09
                                         </strong>
                               </h4>
-                    </th>
+                    </td>
           </tr>
 </thead>,
         "_debugID": 6,
         "_renderedOutput": <thead>
+          <Header />
           <tr>
-                    <th>
-                              <div
-                                        id="refresh-wrapper"
-                                        onClick={undefined}
-                              >
-                                        <h4>
-                                                  <a
-                                                            id="refresh"
-                                                  >
-                                                            Refresh
-                                                  </a>
-                                        </h4>
-                              </div>
-                    </th>
-                    <th>
+                    <td
+                              id="refresh-wrapper"
+                    >
+                              <h4>
+                                        <a
+                                                  id="refresh"
+                                                  onClick={[Function]}
+                                        >
+                                                  Refresh
+                                        </a>
+                              </h4>
+                    </td>
+                    <td
+                              id="update-wrapper"
+                    >
                               <h4>
                                         <strong>
                                                   Last updated 
                                                   2017-09-09
                                         </strong>
                               </h4>
-                    </th>
+                    </td>
           </tr>
 </thead>,
       },
@@ -234,56 +242,58 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <thead>
+    <Header />
     <tr>
-        <th>
-            <div
-                id="refresh-wrapper"
-                onClick={undefined}
-            >
-                <h4>
-                    <a
-                        id="refresh"
-                    >
-                        Refresh
-                    </a>
-                </h4>
-            </div>
-        </th>
-        <th>
+        <td
+            id="refresh-wrapper"
+        >
+            <h4>
+                <a
+                    id="refresh"
+                    onClick={[Function]}
+                >
+                    Refresh
+                </a>
+            </h4>
+        </td>
+        <td
+            id="update-wrapper"
+        >
             <h4>
                 <strong>
                     Last updated 
                     2017-09-09
                 </strong>
             </h4>
-        </th>
+        </td>
     </tr>
 </thead>,
   "nodes": Array [
     <thead>
+      <Header />
       <tr>
-            <th>
-                  <div
-                        id="refresh-wrapper"
-                        onClick={undefined}
-                  >
-                        <h4>
-                              <a
-                                    id="refresh"
-                              >
-                                    Refresh
-                              </a>
-                        </h4>
-                  </div>
-            </th>
-            <th>
+            <td
+                  id="refresh-wrapper"
+            >
+                  <h4>
+                        <a
+                              id="refresh"
+                              onClick={[Function]}
+                        >
+                              Refresh
+                        </a>
+                  </h4>
+            </td>
+            <td
+                  id="update-wrapper"
+            >
                   <h4>
                         <strong>
                               Last updated 
                               2017-09-09
                         </strong>
                   </h4>
-            </th>
+            </td>
       </tr>
 </thead>,
   ],
@@ -326,56 +336,58 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <thead>
+          <Header />
           <tr>
-                    <th>
-                              <div
-                                        id="refresh-wrapper"
-                                        onClick={undefined}
-                              >
-                                        <h4>
-                                                  <a
-                                                            id="refresh"
-                                                  >
-                                                            Refresh
-                                                  </a>
-                                        </h4>
-                              </div>
-                    </th>
-                    <th>
+                    <td
+                              id="refresh-wrapper"
+                    >
+                              <h4>
+                                        <a
+                                                  id="refresh"
+                                                  onClick={[Function]}
+                                        >
+                                                  Refresh
+                                        </a>
+                              </h4>
+                    </td>
+                    <td
+                              id="update-wrapper"
+                    >
                               <h4>
                                         <strong>
                                                   Last updated 
                                                   2017-09-09
                                         </strong>
                               </h4>
-                    </th>
+                    </td>
           </tr>
 </thead>,
         "_debugID": 6,
         "_renderedOutput": <thead>
+          <Header />
           <tr>
-                    <th>
-                              <div
-                                        id="refresh-wrapper"
-                                        onClick={undefined}
-                              >
-                                        <h4>
-                                                  <a
-                                                            id="refresh"
-                                                  >
-                                                            Refresh
-                                                  </a>
-                                        </h4>
-                              </div>
-                    </th>
-                    <th>
+                    <td
+                              id="refresh-wrapper"
+                    >
+                              <h4>
+                                        <a
+                                                  id="refresh"
+                                                  onClick={[Function]}
+                                        >
+                                                  Refresh
+                                        </a>
+                              </h4>
+                    </td>
+                    <td
+                              id="update-wrapper"
+                    >
                               <h4>
                                         <strong>
                                                   Last updated 
                                                   2017-09-09
                                         </strong>
                               </h4>
-                    </th>
+                    </td>
           </tr>
 </thead>,
       },
