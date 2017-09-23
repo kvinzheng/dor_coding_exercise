@@ -42,17 +42,17 @@ In order to test asynchronous call actions, I need find ways to test them while 
 #### Before Refactor ####
 You can see that the actions ```retrieveToken``` and ```loadAllData``` have network requests(API_URL) inside. Then I use the Thunk-Middleware to ensure the flow of actions is correct.
 
-![Before Refactor](https://i.imgur.com/BRdwEGW.png)
+![Before Refactor](https://i.imgur.com/BRdwEGW.png =100x20)
 
 #### After Refactor ####
 You can see that the actions take in an Api object(it lives with in the src/utils/Api.js directory). This time, both actions ```retrieveToken``` and ```loadAllData``` just know that they take in an object. From there, I can mock the two function ```axiosToken``` and ```axiosData```.
 
 Bonus: The code is more clean and structure. I love the refactored way. In factor, I can also store future API calls inside the src/utils/Api.js directory.
 
-![After Refactor](https://i.imgur.com/pTdFYIm.png)
+![After Refactor](https://i.imgur.com/pTdFYIm.png =100x20)
 
 This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted.
 
-![Utils Api](https://i.imgur.com/zSXQ6R1.png)
+![Utils Api](https://i.imgur.com/zSXQ6R1.png =100x20)
 
 **The local host server for the app is** http://localhost:3000
