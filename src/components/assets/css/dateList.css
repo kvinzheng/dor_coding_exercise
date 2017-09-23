@@ -22,9 +22,10 @@ table thead, table tbody tr {
 }
 
 body {
-  height:100%;
+  height: 100%;
   background-color: #eaecef;
 }
+
 .dateList-container {
   margin-top: 50px;
   display: flex;
@@ -75,10 +76,10 @@ body {
   width: 500px;
 }
 
-
 #refresh {
   display: inline-block;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #refresh-wrapper {

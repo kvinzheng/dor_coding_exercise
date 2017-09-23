@@ -1,15 +1,8 @@
-.store-header {
-  margin-bottom: 0px;
-  text-align: center;
+.store-header-wrapper {
   font-size: 150%;
   font-weight: bold;
   width: 500px;
   height: 50px;
   color: #f9f9f9;
   background-color: #ed0e0e;
-}
-
-.store-header-wrapper {
-  display: flex;
-  justify-content: center;
 }
