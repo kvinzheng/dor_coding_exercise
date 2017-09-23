@@ -84,10 +84,7 @@ it('mapStateToProps', () => {
   })
 
   xit('Calls getAllDate on load', () => {
-    // const store = mockStore({});
-    // console.log('store = ', store);
     let getAllDate = jest.fn();
-    // store.dispatch(getAllDate());
     const component = mount(
       <DateList />
     )
