@@ -4,7 +4,7 @@ This is a simple React/Redux application that displays the day by day in_count f
 
 ## Features Of This App: ##
 - List the returned days, and display the in_count for each day. Show all days returned by the API.
-- A refresh button and "last refreshed at" time that allows you to refresh the data
+- A refresh button and "Last updated at" time that allows you to refresh the data
 - The app displays "Loading..." while it is requesting data from the server
 - The app has a few tests verifying it's functionality
 
@@ -83,4 +83,4 @@ In the future I hope to build upon the following goals:
 - If this app is used on mobile, I look forward to making it responsive.
 - Reach higher testing coverage percentage.
 
-I hope you had a good time when reviewing this app. I am always open to any feedback. 
+I hope you had a good time when reviewing this app. I am always open to any feedback.
