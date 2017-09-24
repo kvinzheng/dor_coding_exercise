@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+// This Api Class is going to be used for making Api calls
+// Note: It is also the extraArgument in the Thunk-Middleware
 export default class Api {
   static axiosToken() {
     const API_URL = 'http://api.getdor.com/v1/tokens';

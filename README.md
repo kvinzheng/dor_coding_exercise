@@ -8,6 +8,9 @@ This is a simple React/Redux application that displays the day by day in_count f
 - The app displays "Loading..." while it is requesting data from the server
 - The app has a few tests verifying it's functionality
 
+This is what the product looks like:
+
+<img src="./src/assets/product.png" width="800"/>
 
 ## FOR DEVELOPERS ##
 To utilize this repo, please do the following:
@@ -16,6 +19,8 @@ To utilize this repo, please do the following:
 2. Do an NPM install inside your terminal to obtain necessary node modules: `npm install`
 3. To run this app locally, run `npm start` inside your terminal to start up a development server with which you can preview your work at any given time.
 
+**The default local host server is** http://localhost:3000
+
 ## Testing ##
 I understand the importance of testing and I screenshot the testing coverage from the terminal
 
@@ -23,7 +28,7 @@ I understand the importance of testing and I screenshot the testing coverage fro
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
 
 **NOTE** : I tested only **Reducers, Actions,** and **Components**.
-<img src="./src/assets/test.png" width="600" />
+<img src="./src/assets/test_coverage.png" width="600" />
 
 Improvement: I would like to continue to test more functionality in the future. For now, I think the test coverage result is promising for reducers, actions, and components.
 
@@ -65,5 +70,3 @@ Bonus: The code is more module and structured. I love this refactored code. In f
 This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. The promises will be taken care by the Promise middleware later.
 
 <img src="./src/assets/Api.png" width="600" />
-
-**The local host server for the app is** http://localhost:3000

@@ -9,13 +9,12 @@ import reducer from './reducers';
 import './index.css';
 import Api from './utils/Api';
 
-/* istanbul ignore next */
+// store creation
 const store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
 );
 
-/* istanbul ignore next */
 render(
   <Provider store={store}>
     <App />

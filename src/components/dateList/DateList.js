@@ -20,15 +20,16 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => (bindActionCreators({
-  getAllDate
+  getAllDate,
 }, dispatch));
 
 export class DateList extends Component {
 
+  // when this component first get mounted, it is going to make the Api
   componentDidMount = () => {
     this.props.getAllDate();
   }
-
+  // I render the table data here.
   renderList = (list, max) => (list.map((item, index) => (
     <tr key={index}>
       <td id="date-box">
@@ -49,6 +50,8 @@ export class DateList extends Component {
   )));
 
   render() {
+    // if the Api call's status is 'FULFILLED', I render the div with data
+    // if the Api call's status is 'PENDING', I render the div with loading
     if (this.props.status === 'FULFILLED') {
       return (
         <div className="dateList-container">

@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as moment from 'moment';
-import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
 import { DateList, mapStateToProps, mapDispatchToProps } from './DateList';
 
