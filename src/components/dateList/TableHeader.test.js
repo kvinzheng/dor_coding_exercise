@@ -25,11 +25,12 @@ describe('TableHeader Component', () => {
   });
 
   it('simulate refresh clicked', () => {
-    const wrapper = shallow(
-      <TableHeader currentTime={'2017-09-09'} />
-    );
-    expect(wrapper).toMatchSnapshot();
-    wrapper.find('#refresh-wrapper').simulate('click');
+    const getAllDate = jest.fn();
+    const wrapper = shallow(<TableHeader currentTime={'2017-09-09'} getAllDate={getAllDate} />);
+    wrapper.find('#refresh').simulate('click', {
+      preventDefault: () => {},
+    });
+    expect(getAllDate).toHaveBeenCalled();
     expect(wrapper).toMatchSnapshot();
   });
 

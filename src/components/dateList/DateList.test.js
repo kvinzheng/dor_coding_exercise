@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import * as moment from 'moment';
+import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
 import { DateList, mapStateToProps, mapDispatchToProps } from './DateList';
 
@@ -74,5 +75,4 @@ describe('DateList Component', () => {
     const dispatch = jest.fn();
     expect(mapDispatchToProps(dispatch)).toHaveProperty('getAllDate');
   });
-
 });
