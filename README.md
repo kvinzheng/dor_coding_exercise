@@ -22,7 +22,7 @@ To utilize this repo, please do the following:
 **The default local host server is** http://localhost:3000
 
 ## Testing ##
-I understand the importance of testing and I screenshot the testing coverage from the terminal
+I understand the importance of testing and I screenshotted the testing coverage from the terminal
 
 1. run ```npm test``` to run all the tests without the test coverage interface
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
