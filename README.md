@@ -8,21 +8,24 @@ This is a simple React/Redux application that displays the day by day in_count f
 - The app displays "Loading..." while it is requesting data from the server
 - The app has a few tests verifying it's functionality
 
-This is what the product looks like:
+Screenshot:
 
 <img src="./src/assets/product.png" width="800"/>
 
-## For Developers ##
+## To Start App ##
 To utilize this repo, please do the following:
 
 1. Fork & clone this repository
 2. Do an NPM install inside your terminal to obtain necessary node modules: `npm install`
 3. To run this app locally, run `npm start` inside your terminal to start up a development server with which you can preview your work at any given time.
 
-**The default local host server is** http://localhost:3000
-
 ## Testing ##
-I understand the importance of testing and I screenshotted the testing coverage from the terminal
+I screenshotted the testing coverage:
+
+Test Coverage Details:
+- Test coverage for components is **97%**
+- Test coverage for reducers is **78%**
+- Test coverage for actions is **67%**
 
 1. run ```npm test``` to run all the tests without the test coverage interface
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
@@ -30,12 +33,8 @@ I understand the importance of testing and I screenshotted the testing coverage 
 **NOTE** : I tested only **Reducers, Actions,** and **Components**.
 <img src="./src/assets/test_coverage.png" width="600" />
 
-Improvement: I would like to continue to test more functionality in the future. For now, I think the test coverage result is promising for reducers, actions, and components.
+Improvement: I would like to continue to test more functionality in the future. For now, I think the test coverage result is promising for Reducers, Actions, and Components.
 
-Test Coverage Details:
-- Test coverage for components is **97%**
-- Test coverage for reducers is **78%**
-- Test coverage for actions is **67%**
 
 ## Technologies Used
 
@@ -44,7 +43,7 @@ Other pieces of technologies include:
 
 * [React-Promise-Middleware](https://github.com/pburtchaell/redux-promise-middleware/blob/master/docs/introduction.md)(A middleware that will resolve a promise into one of the three results: FULFILLED, REJECTED or PENDING)
 
-* [Redux-Thunk](https://github.com/gaearon/redux-thunk)(A middleware orchestrates an asynchronous control flow with thunk action creators dispatching each other and returning Promises to wait for each other’s completion)
+* [Redux-Thunk](https://github.com/gaearon/redux-thunk)(A middleware allows you to write action creators that return a function instead of an action)
 
 
 ## Code Refactor => Testing
@@ -67,8 +66,6 @@ const store = createStore(reducer,
 ```
 
 This time, both actions ```retrieveToken``` and ```loadAllData``` just know that they take in an object. From there, I can simply mock the two functions within the Api Class(extraArgument in the Thunk-Middleware) ```axiosToken``` and ```axiosData```.
-
-Bonus: The code is more module and structured. I love this refactored code. In factor, I can also store future API calls inside the src/utils/Api.js directory. If the applications get really big, this structure can potentially help the company.
 
 <img src="./src/assets/after_refactor.png" width="600"/>
 
