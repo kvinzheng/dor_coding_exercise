@@ -39,10 +39,13 @@ Test Coverage Details:
 The app is currently built with Javascript, React and Redux.
 Other pieces of technologies include:
 
-* [React-Promise-Middleware](https://github.com/pburtchaell/redux-promise-middleware/blob/master/docs/introduction.md)(A middleware that will resolve a promise into one of the three results: FULFILLED, REJECTED or PENDING)
+* [Redux-Promise-Middleware](https://github.com/pburtchaell/redux-promise-middleware/blob/master/docs/introduction.md)(A middleware that will resolve a promise into one of the three results: FULFILLED, REJECTED or PENDING)
+
+I used redux-promise-middleware to render the loading screen.
 
 * [Redux-Thunk](https://github.com/gaearon/redux-thunk)(A middleware allows you to write action creators that return a function instead of an action)
 
+I used redux-thunk-middleware to ensure the flow of actions.
 
 ## Code Refactor => Testing
 
@@ -70,12 +73,5 @@ This time, both actions ```retrieveToken``` and ```loadAllData``` just know that
 This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. The promises will be taken care by the Promise middleware later.
 
 <img src="./src/assets/Api.png" width="600" />
-
-## Room For Improvement ##
-
-In the future I hope to build upon the following goals:
-
-- If this app is used on mobile, I look forward to making it responsive.
-- Reach higher testing coverage percentage.
 
 I hope you had a good time when reviewing this app. I am always open to any feedback.
