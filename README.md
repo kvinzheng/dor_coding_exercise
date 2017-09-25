@@ -29,6 +29,7 @@ Test Coverage Details:
 
 1. run ```npm test``` to run all the tests without the test coverage interface
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
+3. run ```open coverage/lcov-report/index.html ``` to open coverage files detail
 
 **NOTE** : I tested only **Reducers, Actions,** and **Components**.
 <img src="./src/assets/test_coverage.png" width="600" />
