@@ -16,8 +16,7 @@ export const loadAllData = (api, token) => {
   return { type: 'LOAD_ALL_DATA', payload: dataPromise };
 };
 
-// utilize thunk middleware to make sure the order of the actions is correct
-// note: I am also using the promiseMiddleware here to show the loading page
+// utilize thunk middleware to make sure the order of the actions is correct while using the Api Class as the extra argument
 export const getAllDate = () => {
   return (dispatch, getState, { Api }) => {
     return dispatch(retrieveToken(Api)).then(() => {

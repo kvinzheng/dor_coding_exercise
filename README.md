@@ -33,9 +33,6 @@ Test Coverage Details:
 **NOTE** : I tested only **Reducers, Actions,** and **Components**.
 <img src="./src/assets/test_coverage.png" width="600" />
 
-Improvement: I would like to continue to test more functionality in the future. For now, I think the test coverage result is promising for Reducers, Actions, and Components.
-
-
 ## Technologies Used
 
 The app is currently built with Javascript, React and Redux.
@@ -65,7 +62,7 @@ const store = createStore(reducer,
 );
 ```
 
-This time, both actions ```retrieveToken``` and ```loadAllData``` just know that they take in an object. From there, I can simply mock the two functions within the Api Class(extraArgument in the Thunk-Middleware) ```axiosToken``` and ```axiosData```.
+This time, both actions ```retrieveToken``` and ```loadAllData``` just know that they take in an Class. From there, I can simply mock the two functions within the Api Class(extraArgument in the Thunk-Middleware) ```axiosToken``` and ```axiosData```.
 
 <img src="./src/assets/after_refactor.png" width="600"/>
 
