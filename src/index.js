@@ -10,7 +10,7 @@ import './index.css';
 import * as Api from './utils/Api';
 
 // store creation
-const store = createStore(reducer,
+export const store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
 );

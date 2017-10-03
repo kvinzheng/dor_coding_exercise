@@ -61,4 +61,36 @@ describe('loadAllData', function () {
       status: 'FULFILLED',
     });
   });
+  it('PENDING: returns a new state with the an array of data as the payload', function () {
+    const prevState = {
+      myData: null,
+      status: null,
+    };
+    const nextState = loadAllData(prevState, {
+      type: 'LOAD_ALL_DATA_PENDING',
+      payload: { },
+    });
+
+    expect(nextState).not.toBe(prevState);
+    expect(nextState).toEqual({
+      myData: null,
+      status: 'PENDING',
+    });
+  });
+  it('REJECTED: returns a new state with the an array of data as the payload', function () {
+    const prevState = {
+      myData: null,
+      status: null,
+    };
+    const nextState = loadAllData(prevState, {
+      type: 'LOAD_ALL_DATA_REJECTED',
+      payload: { },
+    });
+
+    expect(nextState).not.toBe(prevState);
+    expect(nextState).toEqual({
+      myData: null,
+      status: 'REJECTED',
+    });
+  });
 });

@@ -34,4 +34,30 @@ describe('token', function () {
     expect(nextState).not.toBe(prevState);
     expect(nextState).toEqual({ myToken: 'abcdefg', status: 'FULFILLED' });
   });
+  it('PENDING':'returns a new state with the specified token as the payload', function () {
+    const prevState = {
+      myToken: null,
+      status: null,
+    };
+    const nextState = token(prevState, {
+      type: 'RETRIEVE_PENDING',
+      payload: { },
+    });
+
+    expect(nextState).not.toBe(prevState);
+    expect(nextState).toEqual({ myToken: null, status:'PENDING' });
+  });
+  it('REJECTED: returns a new state with the specified token as the payload', function () {
+    const prevState = {
+      myToken: null,
+      status: null,
+    };
+    const nextState = token(prevState, {
+      type: 'RETRIEVE_REJECTED',
+      payload: { },
+    });
+
+    expect(nextState).not.toBe(prevState);
+    expect(nextState).toEqual({ myToken: null , status: 'REJECTED' });
+  });
 });
