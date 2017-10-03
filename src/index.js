@@ -7,7 +7,7 @@ import thunkMiddleware from 'redux-thunk';
 import App from './components/App';
 import reducer from './reducers';
 import './index.css';
-import Api from './utils/Api';
+import * as Api from './utils/Api';
 
 // store creation
 const store = createStore(reducer,

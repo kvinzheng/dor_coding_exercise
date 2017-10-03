@@ -1,13 +1,18 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { timeNow, retrieveToken, loadAllData } from './index';
+
+jest.mock('./index.test.js');
+import {timeNow, retrieveToken, loadAllData, getAllDate} from './index';
+
+jest.mock('../utils/Api.js');
+import * as Api from '../utils/Api.js';
 
 describe('Actions Tests', () => {
   it('timeNow action', () => {
     const result = timeNow();
     const expected = {
       type: 'CURRENT_TIME',
-      payload: result.payload,
+      payload: result.payload
     };
 
     expect(result).toEqual(expected);
@@ -15,21 +20,21 @@ describe('Actions Tests', () => {
 
   it('retrieve token action', () => {
     const mockAxiosToken = jest.fn();
-    mockAxiosToken.mockReturnValue(Promise.resolve({ myToken: 'abcdef', status: 'FULFILLED' }));
+    mockAxiosToken.mockReturnValue(Promise.resolve({myToken: 'abcdef', status: 'FULFILLED'}));
     const extraArgument = {
       Api: {
-        axiosToken: mockAxiosToken,
-      },
+        axiosToken: mockAxiosToken
+      }
     };
     const initialState = {
       myToken: null,
-      status: null,
+      status: null
     };
     const expectedActionRetrieve = [
       {
         type: 'RETRIEVE',
-        payload: mockAxiosToken(),
-      },
+        payload: mockAxiosToken()
+      }
     ];
     const mockStore = configureStore([thunk.withExtraArgument(extraArgument)]);
     const store = mockStore(initialState, expectedActionRetrieve);
@@ -44,35 +49,35 @@ describe('Actions Tests', () => {
       myData: {
         data: [
           {
-            id: 1,
+            id: 1
           }, {
-            id: 2,
+            id: 2
           }, {
-            id: 3,
-          },
+            id: 3
+          }
         ],
         meta: {
           start_date: '2017-9-07',
-          end_date: '2017-9-21',
-        },
+          end_date: '2017-9-21'
+        }
       },
-      status: 'FULFILLED',
+      status: 'FULFILLED'
     }));
     const extraArgument = {
       Api: {
-        axiosData: mockAxiosData,
-      },
+        axiosData: mockAxiosData
+      }
     };
     const token = 'ABCDEFG';
     const initialState = {
       myData: null,
-      status: null,
+      status: null
     };
     const expectedActionRetrieve = [
       {
         type: 'LOAD_ALL_DATA',
-        payload: mockAxiosData(token),
-      },
+        payload: mockAxiosData(token)
+      }
     ];
 
     const mockStore = configureStore([thunk.withExtraArgument(extraArgument)]);
@@ -80,5 +85,68 @@ describe('Actions Tests', () => {
     store.dispatch(loadAllData(extraArgument.Api, token));
 
     expect(store.getActions()).toEqual(expectedActionRetrieve);
+  });
+
+  it('test thunk', () => {
+    const thunkMiddleware = getAllDate();
+    expect(typeof thunkMiddleware).toBe('function');
+
+    const axiosToken = jest.fn();
+    const axiosData = jest.fn();
+    const timeNow = jest.fn();
+
+    axiosToken.mockReturnValue(Promise.resolve({
+      data: {
+        data: {
+          token: 'abcdefg'
+        }
+      }
+    }));
+    axiosData.mockReturnValue(Promise.resolve([
+      {
+        id: 1,
+        id: 2,
+        id: 3
+      }
+    ]));
+
+    timeNow.mockReturnValue('15:50');
+
+    Api = {
+      axiosToken: axiosToken,
+      axiosData: axiosData
+    }
+
+    const dispatch = jest.fn();
+    const getState = () => ({});
+
+    return thunkMiddleware(dispatch, getState, {Api}).then((value) => {
+      const expectDispatch = {
+        payload: {},
+        type: "LOAD_ALL_DATA"
+      };
+
+      expect(typeof value).toBe(typeof timeNow());
+      expect(dispatch).toBeCalledWith({
+        type: 'LOAD_ALL_DATA',
+        payload: Promise.resolve([
+          {
+            id: 1,
+            id: 2,
+            id: 3
+          }
+        ])
+      });
+      expect(dispatch).toBeCalledWith({
+        type: 'RETRIEVE',
+        payload: Promise.resolve({
+          data: {
+            data: {
+              token: 'abcdefg'
+            }
+          }
+        })
+      });
+    });
   });
 });
