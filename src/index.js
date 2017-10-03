@@ -12,7 +12,7 @@ import * as Api from './utils/Api';
 // store creation
 export const store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
+  applyMiddleware(thunkMiddleware.withExtraArgument({ Api })),
 );
 
 render(

@@ -12,3 +12,17 @@ const retrieveToken = (state = { myToken: null, status: null }, action) => {
 };
 
 export default retrieveToken;
+
+
+// export const getAllDate = () => {
+//   return (dispatch, getState, {Api}) => {
+//     return dispatch(retrieveToken())
+//     .then(token => dispatch(loadAllData(token)))
+//     .then(() => {
+//       dispatch(timeNow())
+//     })
+//     .catch(error => {
+//       console.log('There is an error');
+//     });
+//   };
+// };
