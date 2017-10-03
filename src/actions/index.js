@@ -6,8 +6,19 @@ export const timeNow = () => {
 
 // make a post request API_URL to retrieve to actual token
 export const retrieveToken = (api) => {
-  const tokenPromise = api.axiosToken();
-  return {type: 'RETRIEVE', payload: tokenPromise};
+  return (dispatch, getState, {Api}) => {
+    dispatch({ type: 'RETRIEVE_PENDING' });
+    return Api.aixosToken()
+      .then((value)=>{
+        const token = value.data.data.token;
+        dispatch({ type: 'RETRIEVE_FULFILLED', payload: tokenPromise});
+      })
+      .then(()=>{
+        dispatch({ type: 'RETRIEVE_REJECTED' })
+      })
+    }
+  // const tokenPromise = api.axiosToken();
+  // return {type: 'RETRIEVE', payload: tokenPromise};
 };
 
 // plug the token into the get request API_URL to retrieve the data back
