@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 import toJson from 'enzyme-to-json';
 import { DateList, mapStateToProps, mapDispatchToProps } from './DateList';
 

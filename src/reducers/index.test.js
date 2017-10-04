@@ -1,7 +1,4 @@
 import appReducer from './index.js';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import * as actions from '../actions/index.js';
 
 describe('Index Reducer Tests', () => {
   const base = {
