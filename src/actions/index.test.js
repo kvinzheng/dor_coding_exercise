@@ -4,7 +4,7 @@
 import { timeNow, retrieveToken, loadAllData, getAllDate } from './index'; // eslint-disable-line import/first
 
 describe('Actions Tests', () => {
-  it('timeNow action', () => {
+  it('SUCCESS: timeNow action', () => {
     const time = timeNow();
     const actual = {
       type: 'CURRENT_TIME',
@@ -25,7 +25,7 @@ describe('Actions Tests', () => {
     const axiosTokenFunc = jest.fn();
     const axiosTokenData = jest.fn();
 
-    axiosTokenFunc.mockReturnValue(Promise.resolve({
+    axiosTokenFunc.mockReturnValueOnce(Promise.resolve({
       data: {
         data: {
           token: 'abcdefgh',
@@ -33,7 +33,7 @@ describe('Actions Tests', () => {
       },
     }));
 
-    axiosTokenData.mockReturnValue(Promise.resolve(
+    axiosTokenData.mockReturnValueOnce(Promise.resolve(
       [{ id: 1 }, { id: 2 }, { id: 3 }]),
     );
 
@@ -54,7 +54,36 @@ describe('Actions Tests', () => {
     });
   });
 
-  it('load data action', () => {
+  it('FAIL: retrieve token action', () => {
+    const thunk = retrieveToken();
+    expect(typeof thunk).toBe('function');
+
+    const axiosTokenFunc = jest.fn();
+    const axiosTokenData = jest.fn();
+
+    axiosTokenFunc.mockReturnValueOnce(Promise.reject(new Error('network error')));
+
+    axiosTokenData.mockReturnValueOnce(Promise.resolve(
+      [{ id: 1 }, { id: 2 }, { id: 3 }]),
+    );
+
+    const Api = {
+      axiosToken: axiosTokenFunc,
+      axiosData: axiosTokenData,
+    };
+
+    const dispatch = jest.fn();
+    const getState = () => ({});
+
+    return thunk(dispatch, getState, { Api }).then( token => {
+        expect(Api.axiosToken).toBeCalled()
+        expect(dispatch).toBeCalledWith({
+          type: 'RETRIEVE_REJECTED',
+        });
+    });
+  });
+
+  it('SUCCESS: load data action', () => {
     //first i assign token
     const token = 'abcdefgh';
     const thunk = loadAllData(token);
@@ -63,7 +92,7 @@ describe('Actions Tests', () => {
     const axiosTokenFunc = jest.fn();
     const axiosTokenData = jest.fn();
     //i manually set the return value of my Apis
-    axiosTokenFunc.mockReturnValue(Promise.resolve({
+    axiosTokenFunc.mockReturnValueOnce(Promise.resolve({
       data: {
         data: {
           token: 'abcdefgh',
@@ -71,7 +100,7 @@ describe('Actions Tests', () => {
       },
     }));
 
-    axiosTokenData.mockReturnValue(Promise.resolve(
+    axiosTokenData.mockReturnValueOnce(Promise.resolve(
       [{ id: 1 }, { id: 2 }, { id: 3 }]),
     );
     //I mock my Api directory and set it to become an object
@@ -92,6 +121,41 @@ describe('Actions Tests', () => {
     });
   });
 
+  it('FAIL: load data action', () => {
+    //first i assign token
+    const token = 'abcdefgh';
+    const thunk = loadAllData(token);
+    expect(typeof thunk).toBe('function');
+    //i mock my Api function
+    const axiosTokenFunc = jest.fn();
+    const axiosTokenData = jest.fn();
+    //i manually set the return value of my Apis
+    axiosTokenFunc.mockReturnValueOnce(Promise.resolve({
+      data: {
+        data: {
+          token: 'abcdefgh',
+        },
+      },
+    }));
+
+    axiosTokenData.mockReturnValueOnce(Promise.reject(new Error('network error')));
+    //I mock my Api directory and set it to become an object
+    const Api = {
+      axiosToken: axiosTokenFunc,
+      axiosData: axiosTokenData,
+    };
+
+    const dispatch = jest.fn();
+    const getState = () => ({});
+    //i set the return return value
+    return thunk(dispatch, getState, { Api }).then( data => {
+        expect(Api.axiosData).toBeCalled()
+        expect(dispatch).toBeCalledWith({
+          type: 'LOAD_ALL_DATA_REJECTED',
+        });
+    });
+  });
+
   it('getAllData thunk test', () => {
     const thunk = getAllDate();
     expect(typeof thunk).toBe('function');
@@ -101,7 +165,7 @@ describe('Actions Tests', () => {
     const axiosTokenFunc = jest.fn();
     const axiosTokenData = jest.fn();
     //i manually set the return value of my Apis
-    axiosTokenFunc.mockReturnValue(Promise.resolve({
+    axiosTokenFunc.mockReturnValueOnce(Promise.resolve({
       data: {
         data: {
           token: 'abcdefgh',
@@ -109,7 +173,7 @@ describe('Actions Tests', () => {
       },
     }));
 
-    axiosTokenData.mockReturnValue(Promise.resolve(
+    axiosTokenData.mockReturnValueOnce(Promise.resolve(
       [{ id: 1 }, { id: 2 }, { id: 3 }]),
     );
     //Api object
@@ -118,13 +182,12 @@ describe('Actions Tests', () => {
       axiosData: axiosTokenData,
     };
 
-    retrieveToken.mockReturnValue(Promise.resolve('abcdefgh'));
+    retrieveToken.mockReturnValueOnce(Promise.resolve('abcdefgh'));
 
     const dispatch = jest.fn();
     const getState = () => ({});
 
     return thunk(dispatch, getState, { Api }).then(time => {
-      console.log('time=', time);
       expect(Api.axiosData).toBeCalled();
       expect(typeof time).toBe('object');
       expect(dispatch).toBeCalledWith({

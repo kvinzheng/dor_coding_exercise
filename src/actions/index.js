@@ -15,7 +15,6 @@ export const retrieveToken = () => {
     })
     .catch(err => {
       dispatch({ type: 'RETRIEVE_REJECTED' });
-      console.log('error=',err);
     });
   };
 };
@@ -29,7 +28,7 @@ export const loadAllData = token => {
       dispatch({ type: 'LOAD_ALL_DATA_FULFILLED', payload: data });
       return data;
     })
-    .catch(() => {
+    .catch(err => {
       dispatch({ type: 'LOAD_ALL_DATA_REJECTED' });
     });
   }
@@ -38,7 +37,8 @@ export const loadAllData = token => {
 // utilize thunk middleware to make sure the order of the actions is correct while using the Api Class as the extra argument
 export const getAllDate = () => {
   return (dispatch, getState, { Api }) => {
-    // console.log('dispatch(retrieveToken())=',dispatch(retrieveToken()));
+    // console.log('dispatch(retrsieveToken())=',dispatch(retrieveToken()));
+    // return dispatch(retrieveToken())
     return retrieveToken()(dispatch, getState, { Api })
       .then(token => {
         // return dispatch(loadAllData(token));
