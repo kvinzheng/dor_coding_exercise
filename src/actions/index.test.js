@@ -156,15 +156,13 @@ describe('Actions Tests', () => {
     });
   });
 
-  it('getAllData thunk test', () => {
+  it('SUCCESS: getAllData thunk test', () => {
     const thunk = getAllDate();
     expect(typeof thunk).toBe('function');
-    //mock other thunk functions
-    const retrieveToken = jest.fn();
-    //i mock my Api function
+
+    //mock api function
     const axiosTokenFunc = jest.fn();
     const axiosTokenData = jest.fn();
-    //i manually set the return value of my Apis
     axiosTokenFunc.mockReturnValueOnce(Promise.resolve({
       data: {
         data: {
@@ -172,27 +170,77 @@ describe('Actions Tests', () => {
         },
       },
     }));
-
     axiosTokenData.mockReturnValueOnce(Promise.resolve(
       [{ id: 1 }, { id: 2 }, { id: 3 }]),
     );
+
     //Api object
     const Api = {
       axiosToken: axiosTokenFunc,
       axiosData: axiosTokenData,
     };
-
-    retrieveToken.mockReturnValueOnce(Promise.resolve('abcdefgh'));
-
     const dispatch = jest.fn();
     const getState = () => ({});
 
+    //mock thunk function
+    const retrieveToken = jest.fn();
+    const loadAllData = jest.fn();
+    const token = 'abcdefg';
+    retrieveToken.mockReturnValueOnce(Promise.resolve(token));
+    loadAllData.mockReturnValueOnce(Promise.resolve([{ id: 1 }, { id: 2 }, { id: 3 }]));
+
+    dispatch.mockImplementationOnce(() => retrieveToken() )
+    .mockImplementationOnce(() => loadAllData());
+
+    //test thunk
     return thunk(dispatch, getState, { Api }).then(time => {
-      expect(Api.axiosData).toBeCalled();
-      expect(typeof time).toBe('object');
-      expect(dispatch).toBeCalledWith({
-        type: 'LOAD_ALL_DATA_PENDING',
-      });
+      expect(retrieveToken).toBeCalled();
+      expect(loadAllData).toBeCalled();
+      expect(typeof time).toBe('string');
+    });
+  });
+
+  it('FAIL: getAllData thunk test', () => {
+    const thunk = getAllDate();
+    expect(typeof thunk).toBe('function');
+
+    //mock api function
+    const axiosTokenFunc = jest.fn();
+    const axiosTokenData = jest.fn();
+    axiosTokenFunc.mockReturnValueOnce(Promise.resolve({
+      data: {
+        data: {
+          token: 'abcdefgh',
+        },
+      },
+    }));
+    axiosTokenData.mockReturnValueOnce(Promise.resolve(
+      [{ id: 1 }, { id: 2 }, { id: 3 }]),
+    );
+
+    //Api object
+    const Api = {
+      axiosToken: axiosTokenFunc,
+      axiosData: axiosTokenData,
+    };
+    const dispatch = jest.fn();
+    const getState = () => ({});
+
+    //mock thunk function
+    const retrieveToken = jest.fn();
+    const loadAllData = jest.fn();
+    const token = 'abcdefg';
+    retrieveToken.mockReturnValueOnce(Promise.resolve(token));
+    loadAllData.mockReturnValueOnce(Promise.reject([{ id: 1 }, { id: 2 }, { id: 3 }]));
+
+    dispatch.mockImplementationOnce(() => retrieveToken() )
+    .mockImplementationOnce(() => loadAllData());
+
+    //test thunk
+    return thunk(dispatch, getState, { Api }).then(time => {
+      expect(retrieveToken).toBeCalled();
+      expect(loadAllData).toBeCalled();
+      expect(typeof time).toBe('string');
     });
   });
 });

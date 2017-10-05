@@ -13,7 +13,7 @@ export const retrieveToken = () => {
       dispatch({ type: 'RETRIEVE_FULFILLED', payload: value });
       return value.data.data.token;
     })
-    .catch(err => {
+    .catch(error => {
       dispatch({ type: 'RETRIEVE_REJECTED' });
     });
   };
@@ -28,7 +28,7 @@ export const loadAllData = token => {
       dispatch({ type: 'LOAD_ALL_DATA_FULFILLED', payload: data });
       return data;
     })
-    .catch(err => {
+    .catch(error => {
       dispatch({ type: 'LOAD_ALL_DATA_REJECTED' });
     });
   }
@@ -38,19 +38,19 @@ export const loadAllData = token => {
 export const getAllDate = () => {
   return (dispatch, getState, { Api }) => {
     // console.log('dispatch(retrsieveToken())=',dispatch(retrieveToken()));
-    // return dispatch(retrieveToken())
-    return retrieveToken()(dispatch, getState, { Api })
+    return dispatch(retrieveToken())
+    // return retrieveToken()(dispatch, getState, { Api })
       .then(token => {
-        // return dispatch(loadAllData(token));
-        return loadAllData(token)(dispatch, getState, { Api });
+        console.log('token=',token);
+        return dispatch(loadAllData(token));
+        // return loadAllData(token)(dispatch, getState, { Api });
       })
       .then(() => {
         dispatch(timeNow());
-        return timeNow();
+        return timeNow().payload;
       })
       .catch(error => {
-        console.log('error', error);
-        // console.log('there is an error');
+        return 'found an error'
       });
   }
 }
