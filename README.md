@@ -23,9 +23,12 @@ To utilize this repo, please do the following:
 I screenshotted the testing coverage:
 
 Test Coverage Details:
-- Test coverage for components is **97%**
-- Test coverage for reducers is **78%**
-- Test coverage for actions is **67%**
+- Test coverage for components is **100%**
+- Test coverage for reducers is **100%**
+- Test coverage for actions is **100%%**
+- Test coverage for utils/Api is **100%**
+
+NOTE: I ignore src/index.js when running the coverage. I don't need to test React Dom Render and the store since they were tested by the creators.
 
 1. run ```npm test``` to run all the tests without the test coverage interface
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
@@ -48,16 +51,7 @@ I used redux-promise-middleware to render the loading screen.
 I used redux-thunk-middleware to ensure the flow of actions.
 
 ## Code Refactor => Testing
-
-In the beginning, I write my actions with Api calls within them. They work perfectly fine. In order to test asynchronous call actions, I need find ways to test actions while without making network requests.
-
-### Before Refactor ###
-You can see that the actions ```retrieveToken``` and ```loadAllData``` have network requests(API_URL) inside. Then I use the Thunk-Middleware to ensure the flow of actions is correct.
-
-<img src="./src/assets/before_refactor.png" width="600"/>
-
-### After Refactor ###
-You can see that the actions take in an Api Class(it lives with in the src/utils/Api.js directory). In this case, I utilized the extraArgument parameter inside the Thunk-Middleware and set my Api object as the extraArgument.
+You can see that the actions take in an Api Object(it lives with in the src/utils/Api.js directory). In this case, I utilized the extraArgument parameter inside the Thunk-Middleware and set my Api object as the extraArgument.
 
 ```Javascript
 const store = createStore(reducer,
