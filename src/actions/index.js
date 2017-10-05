@@ -33,8 +33,7 @@ export const loadAllData = token => {
     });
   }
 }
-
-// utilize thunk middleware to make sure the order of the actions is correct while using the Api Class as the extra argument
+// utilize thunk middleware to make sure the order of the actions is correct
 export const getAllDate = () => {
   return (dispatch, getState, { Api }) => {
     return dispatch(retrieveToken())
