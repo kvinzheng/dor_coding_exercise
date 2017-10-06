@@ -42,10 +42,6 @@ NOTE: I ignore src/index.js when running the coverage. I don't need to test Reac
 The app is currently built with Javascript, React and Redux.
 Other pieces of technologies include:
 
-* [Redux-Promise-Middleware](https://github.com/pburtchaell/redux-promise-middleware/blob/master/docs/introduction.md)(A middleware that will resolve a promise into one of the three results: FULFILLED, REJECTED or PENDING)
-
-I used redux-promise-middleware to render the loading screen.
-
 * [Redux-Thunk](https://github.com/gaearon/redux-thunk)(A middleware allows you to write action creators that return a function instead of an action)
 
 I used redux-thunk-middleware to ensure the flow of actions.
