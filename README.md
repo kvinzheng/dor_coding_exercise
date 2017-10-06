@@ -59,9 +59,6 @@ const store = createStore(reducer,
   applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
 );
 ```
-
-This time, both actions ```retrieveToken``` and ```loadAllData``` just know that they take in an Class. From there, I can simply mock the two functions within the Api Class(extraArgument in the Thunk-Middleware) ```axiosToken``` and ```axiosData```.
-
 <img src="./src/assets/after_refactor.png" width="600"/>
 
 This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. The promises will be taken care by the Promise middleware later.
