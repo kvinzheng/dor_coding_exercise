@@ -34,7 +34,6 @@ NOTE: I ignore src/index.js when running the coverage. I don't need to test Reac
 2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
 3. run ```open coverage/lcov-report/index.html ``` to open coverage files detail
 
-**NOTE** : I tested only **Reducers, Actions,** and **Components**.
 <img src="./src/assets/test_coverage.png" width="600" />
 
 ## Technologies Used
@@ -59,6 +58,7 @@ const store = createStore(reducer,
   applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
 );
 ```
+
 <img src="./src/assets/thunk.png" width="600"/>
 
 This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. The promises will be taken care by the Promise middleware later.
