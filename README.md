@@ -25,14 +25,15 @@ I screenshotted the testing coverage:
 Test Coverage Details:
 - Test coverage for components is **100%**
 - Test coverage for reducers is **100%**
-- Test coverage for actions is **100%%**
+- Test coverage for actions is **100%**
 - Test coverage for utils/Api is **100%**
 
 NOTE: I ignore src/index.js when running the coverage. I don't need to test React Dom Render and the store since they were tested by the creators.
 
 1. run ```npm test``` to run all the tests without the test coverage interface
-2. run ```npm test -- --coverage``` to run all the tests with the test coverage interface
-3. run ```open coverage/lcov-report/index.html ``` to open coverage files detail
+2. run ```npm test -- --coverage --coveragePathIgnorePatterns src/index.js``` to run all the tests with test coverage interface( we don't need to test React Dom Render and the store since they were tested by the creators);
+3. run ```npm test -- --coverage``` to run all the files with the test coverage interface
+4. run ```open coverage/lcov-report/index.html ``` to open coverage files detail
 
 <img src="./src/assets/test_coverage.png" width="600" />
 
@@ -58,6 +59,7 @@ const store = createStore(reducer,
   applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
 );
 ```
+I used this thunk to chain my other two thunks. I make all my APIs calls action as Thunks.
 
 <img src="./src/assets/thunk.png" width="600"/>
 
