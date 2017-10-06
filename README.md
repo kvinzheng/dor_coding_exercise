@@ -59,7 +59,7 @@ const store = createStore(reducer,
   applyMiddleware(thunkMiddleware.withExtraArgument({ Api }), promiseMiddleware()),
 );
 ```
-<img src="./src/assets/after_refactor.png" width="600"/>
+<img src="./src/assets/thunk.png" width="600"/>
 
 This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. The promises will be taken care by the Promise middleware later.
 
