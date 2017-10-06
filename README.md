@@ -59,7 +59,7 @@ I used this thunk to chain my other two thunks. I make all my APIs calls action 
 
 <img src="./src/assets/thunk.png" width="600"/>
 
-This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. The promises will be taken care by the Promise middleware later.
+This is how the Api Class look like. Notice Both Api calls ```axiosToken``` and ```axiosData``` both return ```Promises``` which are what we wanted. 
 
 <img src="./src/assets/Api.png" width="600" />
 
